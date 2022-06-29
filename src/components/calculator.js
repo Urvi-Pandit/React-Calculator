@@ -50,6 +50,8 @@ class Calculator extends React.Component {
     <div className="button-row">
       <Button label={'0'} handleClick = {this.handleClick} />
       <Button label={'='} handleClick = {this.handleClick}/>
+      <Button label={'M+'} handleClick = {this.handleClick}/>
+      <Button label={'M-'} handleClick = {this.handleClick}/>	
     </div>
     </div>
     </div>
@@ -91,6 +93,17 @@ class Calculator extends React.Component {
   		this.setState({question: str});
   		break;
 	  }
+		    
+	case 'M+': {
+          console.log(this.state.answer)
+          this.setState({question: this.state.answer});
+          break;
+      }
+
+      case 'M-': {
+        this.setState({ question: '', answer: mem1})
+        break;
+      }
 
     default: {
         this.setState({ question: this.state.question += value})
